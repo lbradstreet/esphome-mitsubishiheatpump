@@ -435,17 +435,20 @@ void MitsubishiHeatPump::setup() {
 #ifdef USE_CALLBACKS
     hp->setSettingsChangedCallback(
             [this]() {
+                ESP_LOGI(TAG, "settings changed callback");
                 this->hpSettingsChanged();
             }
     );
 
     hp->setStatusChangedCallback(
             [this](heatpumpStatus currentStatus) {
+                ESP_LOGI(TAG, "status changed callback");
                 this->hpStatusChanged(currentStatus);
             }
     );
 #endif
 
+    ESP_LOGI(TAG, "here123");
     ESP_LOGCONFIG(
             TAG,
             "hw_serial(%p) is &Serial(%p)? %s",
