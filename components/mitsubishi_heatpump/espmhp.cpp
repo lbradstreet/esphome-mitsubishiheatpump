@@ -506,7 +506,7 @@ void MitsubishiHeatPump::dump_config() {
     this->banner();
     heatpumpSettings currentSettings = this->hp->getSettings();
 
-    ESP_LOGI(TAG, "is heat pump connected? %s", YESNO(hp->isConnected()));
+    ESP_LOGI(TAG, "is heat pump connected1? %s", YESNO(hp->isConnected()));
     ESP_LOGI(TAG, "  Supports HEAT: %s", YESNO(true));
     ESP_LOGI(TAG, "  Supports COOL: %s", YESNO(true));
     ESP_LOGI(TAG, "  Supports AWAY mode: %s", YESNO(false));
