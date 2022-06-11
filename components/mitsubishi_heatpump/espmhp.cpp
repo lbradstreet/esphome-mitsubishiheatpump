@@ -52,7 +52,7 @@ void MitsubishiHeatPump::check_logger_conflict_() {
     }
 #endif
 }
-weffwewe
+
 void MitsubishiHeatPump::update() {
     // This will be called every "update_interval" milliseconds.
     //this->dump_config();
