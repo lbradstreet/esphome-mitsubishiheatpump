@@ -504,6 +504,7 @@ optional<float> MitsubishiHeatPump::load(ESPPreferenceObject& storage) {
 
 void MitsubishiHeatPump::dump_config() {
     this->banner();
+    ESP_LOGI(TAG, "here dump_config");
     ESP_LOGI(TAG, "  Supports HEAT: %s", YESNO(true));
     ESP_LOGI(TAG, "  Supports COOL: %s", YESNO(true));
     ESP_LOGI(TAG, "  Supports AWAY mode: %s", YESNO(false));
