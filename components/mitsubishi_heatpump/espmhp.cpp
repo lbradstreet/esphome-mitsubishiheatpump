@@ -56,6 +56,7 @@ void MitsubishiHeatPump::check_logger_conflict_() {
 void MitsubishiHeatPump::update() {
     // This will be called every "update_interval" milliseconds.
     //this->dump_config();
+    return;
     this->hp->sync();
 #ifndef USE_CALLBACKS
     this->hpSettingsChanged();
@@ -98,6 +99,7 @@ climate::ClimateTraits& MitsubishiHeatPump::config_traits() {
  * Maps HomeAssistant/ESPHome modes to Mitsubishi modes.
  */
 void MitsubishiHeatPump::control(const climate::ClimateCall &call) {
+    return;
     ESP_LOGV(TAG, "Control called.");
 
     bool updated = false;
@@ -247,6 +249,7 @@ void MitsubishiHeatPump::control(const climate::ClimateCall &call) {
 }
 
 void MitsubishiHeatPump::hpSettingsChanged() {
+    return;
     heatpumpSettings currentSettings = hp->getSettings();
 
     if (currentSettings.power == NULL) {
@@ -359,6 +362,7 @@ void MitsubishiHeatPump::hpSettingsChanged() {
  * Report changes in the current temperature sensed by the HeatPump.
  */
 void MitsubishiHeatPump::hpStatusChanged(heatpumpStatus currentStatus) {
+    return;
     this->current_temperature = currentStatus.roomTemperature;
     switch (this->mode) {
         case climate::CLIMATE_MODE_HEAT:
@@ -466,6 +470,7 @@ void MitsubishiHeatPump::setup() {
                 " Marking MitsubishiHeatPump component as failed."
         );
         //this->mark_failed();
+        return;
     }
 
     // create various setpoint persistence:
