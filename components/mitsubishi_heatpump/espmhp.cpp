@@ -465,7 +465,7 @@ void MitsubishiHeatPump::setup() {
                 "Connection to HeatPump failed."
                 " Marking MitsubishiHeatPump component as failed."
         );
-        this->mark_failed();
+        //this->mark_failed();
     }
 
     // create various setpoint persistence:
