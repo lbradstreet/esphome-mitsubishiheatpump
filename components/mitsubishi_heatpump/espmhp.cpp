@@ -422,7 +422,7 @@ void MitsubishiHeatPump::setup() {
                 "Software serial ports are unsupported by this component."
         );
         this->mark_failed();
-     dump_config}
+    }
     this->check_logger_conflict_();
 
     ESP_LOGCONFIG(TAG, "Intializing new HeatPump object.");
