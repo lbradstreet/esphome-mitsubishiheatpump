@@ -422,7 +422,7 @@ void MitsubishiHeatPump::setup() {
                 "Software serial ports are unsupported by this component."
         );
         this->mark_failed();
-    }
+     dump_config}
     this->check_logger_conflict_();
 
     ESP_LOGCONFIG(TAG, "Intializing new HeatPump object.");
@@ -504,7 +504,9 @@ optional<float> MitsubishiHeatPump::load(ESPPreferenceObject& storage) {
 
 void MitsubishiHeatPump::dump_config() {
     this->banner();
-    ESP_LOGI(TAG, "here dump_config");
+    heatpumpSettings currentSettings = this->hp->getSettings();
+
+    ESP_LOGI(TAG, "here dump_config %s", currentSettings.mode);
     ESP_LOGI(TAG, "  Supports HEAT: %s", YESNO(true));
     ESP_LOGI(TAG, "  Supports COOL: %s", YESNO(true));
     ESP_LOGI(TAG, "  Supports AWAY mode: %s", YESNO(false));
