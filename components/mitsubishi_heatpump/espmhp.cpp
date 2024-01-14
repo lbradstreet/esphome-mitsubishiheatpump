@@ -454,7 +454,7 @@ void MitsubishiHeatPump::setup() {
             "hw_serial(%p) is &Serial(%p)? %s",
             this->get_hw_serial_(),
             &Serial,
-            YESNO(this->get_hw_serial_() == &Serial)
+	    YESNO(static_cast<HWCDC*>(this->get_hw_serial_()) == &Serial))
     );
 
     ESP_LOGCONFIG(TAG, "Calling hp->connect(%p)", this->get_hw_serial_());
